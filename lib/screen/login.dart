@@ -9,11 +9,10 @@ class Login extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
         children:<Widget>[
           Container(
-          height: 60,
-          width: 1000,
+          height: 110,
+          width: 1500,
           decoration: BoxDecoration(
             image: DecorationImage(
-              fit: BoxFit.cover,
               image: AssetImage("assets/logo.png")
             ),
           ),

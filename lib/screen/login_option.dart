@@ -12,6 +12,7 @@ class LoginOption extends StatelessWidget {
           "Existing user?",
           style: TextStyle(
             fontSize: 16,
+            fontWeight: FontWeight.bold,
           ),
         ),
 

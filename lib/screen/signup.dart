@@ -10,23 +10,13 @@ class SignUp extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
 
-        Text(
-          "Sign up with",
-          style: TextStyle(
-            fontSize: 16,
-            color: Color(0xFFF3D657),
-            height: 2,
-          ),
-        ),
-
-        Text(
-          "HOMELAND",
-          style: TextStyle(
-            fontSize: 36,
-            fontWeight: FontWeight.bold,
-            color: Color(0xFFF3D657),
-            letterSpacing: 2,
-            height: 1,
+        Container(
+          height: 110,
+          width: 1500,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("assets/logo2.png")
+            ),
           ),
         ),
 
