@@ -4,12 +4,9 @@ const connectToDatabase = require('./config/connectToDatabase');
 
 connectToDatabase();
 
-app.get(
-    '/',
-    (req,res) => {
-        res.send('hello');
-    }
-);
+app.use(express.json({ extended: false }));
+
+app.use("/api/users", require('./routes/users'));
 
 let PORT = process.env.PORT || 3000;
 
