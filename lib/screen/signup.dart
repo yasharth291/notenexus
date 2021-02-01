@@ -26,10 +26,10 @@ class SignUp extends StatelessWidget {
 
         TextField(
           decoration: InputDecoration(
-            hintText: 'Enter Email / Username',
+            hintText: 'Enter Email',
             hintStyle: TextStyle(
               fontSize: 16,
-              color: Color(0xFF3F3C31),
+              color: Colors.white70,
               fontWeight: FontWeight.bold,
             ),
             border: OutlineInputBorder(
@@ -50,11 +50,13 @@ class SignUp extends StatelessWidget {
         ),
 
         TextField(
+          obscureText: true,
+          obscuringCharacter: "*",
           decoration: InputDecoration(
             hintText: 'Password',
             hintStyle: TextStyle(
               fontSize: 16,
-              color: Color(0xFF3F3C31),
+              color: Colors.white70,
               fontWeight: FontWeight.bold,
             ),
             border: OutlineInputBorder(
