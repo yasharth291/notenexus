@@ -13,10 +13,12 @@ router.post(
     [
         check('email','E-mail is required').isEmail(),
         check('password','Password is required').not().isEmpty(),
+        check('names','name is required').not().isEmpty(),
+        check('college','college is required').not().isEmpty(),
     ],
     async (req,res) => {
         try{
-            let { email,password } = req.body;
+            let { email,password,names,college } = req.body;
             let user = await UserSchema.findOne({email : email});
             const errors = validationResult(req);
             if(!errors.isEmpty())
@@ -25,7 +27,7 @@ router.post(
             }
 
             if(user){
-                return res.status(401).json({ msg : "There "})
+                return res.status(401).json({ msg : "present"})
             }
             
             const salt = await bcryptjs.genSalt(10);
@@ -33,7 +35,9 @@ router.post(
 
             user = new UserSchema({
                 email,
-                password
+                password,
+                names,
+                college
              });
 
              await user.save();
@@ -55,13 +59,27 @@ router.post(
                     res.json({token});
                 }
              )
-
-            //res.send('its is send');
+             res.send('true');
         } catch (error){
             console.log(error.message);
             return res.status(500).json({ msg : "Server Error....."});
         }
     }
-)
+);
+
+/*router.post(
+    '/login',
+    [
+        check('email','type your email').isEmail(),
+        check('password','Password is required').not().isEmpty()
+    ],
+    (req,res) => {
+        try {
+
+       } catch{
+
+       }
+    }
+)*/
 
 module.exports = router;

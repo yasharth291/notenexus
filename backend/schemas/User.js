@@ -8,6 +8,14 @@ let UserSchema = mongoose.Schema({
     password:{
         type : String,
         required : true
+    },
+    names:{
+        type : String,
+        required : true
+    },
+    college:{
+        type : String,
+        required : true
     }
 });
 
