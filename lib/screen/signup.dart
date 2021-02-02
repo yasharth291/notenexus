@@ -1,7 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+
+
 
 class SignUp extends StatelessWidget {
+
+
+  GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
+
+  _login() async{
+    try{
+      await _googleSignIn.signIn();
+
+    } catch (err){
+      print(err);
+    }
+  }
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -109,7 +127,7 @@ class SignUp extends StatelessWidget {
         ),
 
         Text(
-          "Or Signup with",
+          "Or Signin with",
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 16,
@@ -126,20 +144,23 @@ class SignUp extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
 
-            Icon(
-              Entypo.facebook_with_circle,
-              size: 32,
-              color: Color(0xFFF3D657),
-            ),
+
 
             SizedBox(
               width: 24,
             ),
 
-            Icon(
-              Entypo.google__with_circle,
-              size: 32,
-              color: Color(0xFFF3D657),
+            IconButton(
+
+              icon: Icon(Entypo.google__with_circle,
+                size: 32,
+                color: Color(0xFFF3D657),),
+              onPressed: () {
+                _login();
+
+              },
+              splashColor: Colors.orangeAccent,
+
             ),
 
           ],
