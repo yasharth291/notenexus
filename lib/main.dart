@@ -4,7 +4,6 @@ import 'package:notenexus/screen/login.dart';
 import 'package:notenexus/screen/login_option.dart';
 import 'package:notenexus/screen/signup.dart';
 import 'package:notenexus/screen/signup_option.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 
 void main() {
   runApp(MyApp());
