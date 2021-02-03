@@ -7,7 +7,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 class SignUp extends StatelessWidget {
 
 
-  GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
+  final GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
 
   _login() async{
     try{

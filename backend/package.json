@@ -8,13 +8,20 @@
   },
   "author": "Yasharth Dubey",
   "license": "ISC",
-  "dependencies": {
+  "dependencies": 
+  {
     "bcrypt": "^5.0.0",
     "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "detect-file-type": "^0.2.8",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-validator": "^6.9.2",
     "forever": "^3.0.4",
+    "formidable": "^1.2.2",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.11.14"
+    "mongoose": "^5.11.14",
+    "multer": "^1.4.2",
+    "uuid": "^8.3.2"
   }
 }
