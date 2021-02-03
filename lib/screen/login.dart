@@ -1,26 +1,64 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:notenexus/main.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Login extends StatelessWidget {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passController = TextEditingController();
+
+  bool _isloading = false;
+
+  signIn(String email, String password) async {
+    String url = 'http://localhost:3000/api/users/login';
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    Map body = {'email': email, 'password': password};
+    var jsonResponse;
+    var res = await http.post(url, body: body);
+    if (res.statusCode == 200) {
+      jsonResponse = json.decode(res.body);
+      print("Response Status: ${res.statusCode}");
+
+      print("Response Status: ${res.body}");
+
+      if (jsonResponse != null) {
+        setState(() {
+          _isloading = false;
+        });
+        sharedPreferences.setString("token", jsonResponse['token']);
+
+        Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(builder: (BuildContext context) => HomePage()),
+            (Route<dynamic> route) => false);
+      }
+    } else {
+      setState(() {
+        _isloading = false;
+      });
+
+      print("Response Status: ${res.body}");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       mainAxisAlignment: MainAxisAlignment.center,
-        children:<Widget>[
-          Container(
+      children: <Widget>[
+        Container(
           height: 110,
           width: 1500,
           decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/logo.png")
-            ),
+            image: DecorationImage(image: AssetImage("assets/logo.png")),
           ),
         ),
         SizedBox(
           height: 26,
         ),
-
         TextField(
+          controller: emailController,
           decoration: InputDecoration(
             hintText: 'E - mail',
             hintStyle: TextStyle(
@@ -40,12 +78,11 @@ class Login extends StatelessWidget {
             contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 0),
           ),
         ),
-
         SizedBox(
           height: 16,
         ),
-
         TextField(
+          controller: passController,
           obscuringCharacter: "*",
           obscureText: true,
           decoration: InputDecoration(
@@ -67,11 +104,9 @@ class Login extends StatelessWidget {
             contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 0),
           ),
         ),
-
         SizedBox(
           height: 24,
         ),
-
         Container(
           height: 40,
           decoration: BoxDecoration(
@@ -88,22 +123,30 @@ class Login extends StatelessWidget {
               ),
             ],
           ),
-          child:  Center(
-            child: Text(
-              "LOGIN",
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Color(0xFFF3D657),
+          child: Center(
+            child: RaisedButton(
+              onPressed: emailController.text == "" || passController.text == ""
+                  ? null
+                  : () {
+                      setState(() {
+                        _isloading = true;
+                      });
+                      signIn(emailController.text, passController.text);
+                    },
+              child: Text(
+                "LOGIN",
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFFF3D657),
+                ),
               ),
             ),
           ),
         ),
-
         SizedBox(
           height: 16,
         ),
-
         Text(
           "FORGOT PASSWORD?",
           style: TextStyle(
@@ -113,8 +156,9 @@ class Login extends StatelessWidget {
             height: 1,
           ),
         ),
-
       ],
     );
   }
+
+  void setState(Null Function() param0) {}
 }
