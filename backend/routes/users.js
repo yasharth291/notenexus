@@ -104,13 +104,13 @@ router.post(
                         {
                             throw err;
                         }      
-                        res.json({token,msg : "password matched"});
+                        res.status(200).json({token,msg : "password matched"});
                     }
                  )
                 
             }
             else {
-                res.send('password dont match');
+                res.status(401).send('password dont match');
             }
 
        } catch (error){

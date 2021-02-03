@@ -1,43 +1,22 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'package:notenexus/main.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:dio/dio.dart';
+class  Login extends StatefulWidget {
+  @override
+  Login_State createState() => Login_State();
+}
 
-class Login extends StatelessWidget {
+class Login_State extends State<Login> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passController = TextEditingController();
 
-  bool _isloading = false;
-
-  signIn(String email, String password) async {
-    String url = 'http://localhost:3000/api/users/login';
-    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    Map body = {'email': email, 'password': password};
-    var jsonResponse;
-    var res = await http.post(url, body: body);
-    if (res.statusCode == 200) {
-      jsonResponse = json.decode(res.body);
-      print("Response Status: ${res.statusCode}");
-
-      print("Response Status: ${res.body}");
-
-      if (jsonResponse != null) {
-        setState(() {
-          _isloading = false;
-        });
-        sharedPreferences.setString("token", jsonResponse['token']);
-
-        Navigator.of(context).pushAndRemoveUntil(
-            MaterialPageRoute(builder: (BuildContext context) => HomePage()),
-            (Route<dynamic> route) => false);
-      }
-    } else {
-      setState(() {
-        _isloading = false;
-      });
-
-      print("Response Status: ${res.body}");
+  createAlbum(Map<String, dynamic> body)async{
+    var dio = Dio();
+    try {
+      FormData formData = new FormData.fromMap(body);
+      var response = await dio.post("http://localhost:3000/api/users/login", data: formData);
+      return response.data;
+    } catch (e) {
+      print(e);
     }
   }
 
@@ -124,15 +103,17 @@ class Login extends StatelessWidget {
             ],
           ),
           child: Center(
-            child: RaisedButton(
-              onPressed: emailController.text == "" || passController.text == ""
-                  ? null
-                  : () {
-                      setState(() {
-                        _isloading = true;
-                      });
-                      signIn(emailController.text, passController.text);
-                    },
+            child: FlatButton(
+              height: 40,
+              color: Color(0xFF1C1C1C).withOpacity(0.2),
+              onPressed: () {
+                setState(() {
+                  var map = new Map<String, dynamic>();
+                  map['email'] = emailController.text;
+                  map['password'] = passController.text;
+                  createAlbum(map);
+                });
+              },
               child: Text(
                 "LOGIN",
                 style: TextStyle(
@@ -160,5 +141,5 @@ class Login extends StatelessWidget {
     );
   }
 
-  void setState(Null Function() param0) {}
+
 }
