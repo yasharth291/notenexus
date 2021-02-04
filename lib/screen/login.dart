@@ -21,7 +21,10 @@ class Login_State extends State<Login> {
     var body  = json.encode({"email" : email, "password": password});
     print(body);
     var jsonResponse;
-    var res = await http.post(url, body: {"email" : email, "password": password});
+    var res = await http.post(url, body: body,headers: {
+    "Accept": "*/*",
+      "Content-Type" : "application/json"
+    },);
     try {
       if (res.statusCode == 200) {
         print("*");
