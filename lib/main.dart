@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         textTheme: GoogleFonts.muktaVaaniTextTheme(),
       ),
       debugShowCheckedModeBanner: false,
-      home: Home(),
+      home: HomePage(),
     );
   }
 }
@@ -118,7 +118,7 @@ class CurvePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     var paint = Paint();
-    paint.color = Color(0xFFF3D657);
+    paint.color = Color(0xFFECCB70);
     paint.style = PaintingStyle.fill;
 
     Path path = Path();

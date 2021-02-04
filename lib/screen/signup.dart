@@ -89,13 +89,13 @@ class _SignUpState extends State<SignUp> {
         Container(
           height: 40,
           decoration: BoxDecoration(
-            color: Color(0xFFF3D657),
+            color: Color(0xFFECCB70),
             borderRadius: BorderRadius.all(
               Radius.circular(25),
             ),
             boxShadow: [
               BoxShadow(
-                color: Color(0xFFF3D657).withOpacity(0.2),
+                color: Color(0xFFECCB70).withOpacity(0.2),
                 spreadRadius: 3,
                 blurRadius: 4,
                 offset: Offset(0, 3),
@@ -121,7 +121,7 @@ class _SignUpState extends State<SignUp> {
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 16,
-            color: Color(0xFFF3D657),
+            color: Color(0xFFECCB70),
             height: 1,
           ),
         ),
@@ -138,7 +138,7 @@ class _SignUpState extends State<SignUp> {
               icon: Icon(
                 Entypo.google__with_circle,
                 size: 32,
-                color: Color(0xFFF3D657),
+                color: Color(0xFFECCB70),
               ),
               onPressed: () {
                 _login();
