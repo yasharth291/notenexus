@@ -4,6 +4,7 @@ import 'package:notenexus/screen/login.dart';
 import 'package:notenexus/screen/login_option.dart';
 import 'package:notenexus/screen/signup.dart';
 import 'package:notenexus/screen/signup_option.dart';
+import 'package:notenexus/screen/Home.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         textTheme: GoogleFonts.muktaVaaniTextTheme(),
       ),
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: Home(),
     );
   }
 }
