@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:dio/dio.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'package:notenexus/main.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 class  Login extends StatefulWidget {
   @override
   Login_State createState() => Login_State();
@@ -8,14 +12,48 @@ class  Login extends StatefulWidget {
 class Login_State extends State<Login> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passController = TextEditingController();
+  String s = "",s2 = "";
+  bool _isloading = false;
 
-  createAlbum(Map<String, dynamic> body)async{
+  signIn(String email, String password) async {
+    String url = "https://notenexus.herokuapp.com/api/users/login";
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    var body  = json.encode({"email" : email, "password": password});
+    print(body);
+    var jsonResponse;
+    var res = await http.post(url, body: body,headers: {
+    "Accept": "*/*",
+      "Content-Type" : "application/json"
+    },);
     try {
-      FormData formData = new FormData.fromMap(body);
-      Response response = await Dio().post("https://notenexus.herokuapp.com/api/users/login", options: Options(contentType: 'multipart/form-data'),data: formData);
-      return response.data;
-    } catch (e) {
-      print(e);
+      if (res.statusCode == 200) {
+        print("*");
+        jsonResponse = json.decode(res.body);
+        print("Response Status: ${res.statusCode}");
+
+        print("Response body: ${res.body}");
+
+        if (jsonResponse != null) {
+          setState(() {
+            _isloading = false;
+          });
+          sharedPreferences.setString("token", jsonResponse['token']);
+
+          Navigator.of(context).pushAndRemoveUntil(
+              MaterialPageRoute(builder: (BuildContext context) => HomePage()),
+                  (Route<dynamic> route) => false);
+        }
+      } else {
+        print("2");
+        setState(() {
+          _isloading = false;
+        });
+        print("Response Status: ${res.statusCode}");
+        print("Response body: ${res.body}");
+      }
+    }
+    catch(e){
+      print (e);
     }
   }
 
@@ -37,6 +75,9 @@ class Login_State extends State<Login> {
         ),
         TextField(
           controller: emailController,
+          onChanged: (String text){
+            s2 = text;
+          },
           decoration: InputDecoration(
             hintText: 'E - mail',
             hintStyle: TextStyle(
@@ -60,7 +101,9 @@ class Login_State extends State<Login> {
           height: 16,
         ),
         TextField(
-          controller: passController,
+          onChanged: (String text){
+            s = text;
+          },
           obscuringCharacter: "*",
           obscureText: true,
           decoration: InputDecoration(
@@ -106,15 +149,13 @@ class Login_State extends State<Login> {
               height: 40,
               color: Color(0xFF1C1C1C).withOpacity(0.2),
               onPressed: () {
-                setState(() {
-                  print(emailController.text);
-                  print(passController.text);
-                  var map = new Map<String, dynamic>();
-                  map["email"] = emailController.text.toString();
-                  map["password"] = passController.text.toString();
-                  createAlbum(map);
-                });
-              },
+                  setState(() {
+                          _isloading = true;
+                    });
+                  print(s2);
+                  print(s);
+                    signIn(s2, s);
+                    },
               child: Text(
                 "LOGIN",
                 style: TextStyle(
