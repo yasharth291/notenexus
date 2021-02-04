@@ -13,7 +13,7 @@ class Login_State extends State<Login> {
     var dio = Dio();
     try {
       FormData formData = new FormData.fromMap(body);
-      var response = await dio.post("http://localhost:3000/api/users/login", data: formData);
+      var response = await dio.post("https://notenexus.herokuapp.com/api/users/login", data: formData);
       return response.data;
     } catch (e) {
       print(e);
