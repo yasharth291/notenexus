@@ -10,10 +10,9 @@ class Login_State extends State<Login> {
   TextEditingController passController = TextEditingController();
 
   createAlbum(Map<String, dynamic> body)async{
-    var dio = Dio();
     try {
       FormData formData = new FormData.fromMap(body);
-      var response = await dio.post("http://localhost:3000/api/users/login", data: formData);
+      Response response = await Dio().post("https://notenexus.herokuapp.com/api/users/login", options: Options(contentType: 'multipart/form-data'),data: formData);
       return response.data;
     } catch (e) {
       print(e);
@@ -108,9 +107,11 @@ class Login_State extends State<Login> {
               color: Color(0xFF1C1C1C).withOpacity(0.2),
               onPressed: () {
                 setState(() {
+                  print(emailController.text);
+                  print(passController.text);
                   var map = new Map<String, dynamic>();
-                  map['email'] = emailController.text;
-                  map['password'] = passController.text;
+                  map["email"] = emailController.text.toString();
+                  map["password"] = passController.text.toString();
                   createAlbum(map);
                 });
               },
