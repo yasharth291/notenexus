@@ -4,6 +4,7 @@ import 'package:notenexus/screen/login.dart';
 import 'package:notenexus/screen/login_option.dart';
 import 'package:notenexus/screen/signup.dart';
 import 'package:notenexus/screen/signup_option.dart';
+import 'package:notenexus/screen/Home.dart';
 
 void main() {
   runApp(MyApp());
@@ -117,7 +118,7 @@ class CurvePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     var paint = Paint();
-    paint.color = Color(0xFFF3D657);
+    paint.color = Color(0xFFECCB95);
     paint.style = PaintingStyle.fill;
 
     Path path = Path();

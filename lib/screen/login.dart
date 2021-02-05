@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'package:notenexus/main.dart';
+import 'Home.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class  Login extends StatefulWidget {
@@ -40,7 +40,7 @@ class Login_State extends State<Login> {
           sharedPreferences.setString("token", jsonResponse['token']);
 
           Navigator.of(context).pushAndRemoveUntil(
-              MaterialPageRoute(builder: (BuildContext context) => HomePage()),
+              MaterialPageRoute(builder: (BuildContext context) => Home()),
                   (Route<dynamic> route) => false);
         }
       } else {
@@ -82,18 +82,19 @@ class Login_State extends State<Login> {
             hintText: 'E - mail',
             hintStyle: TextStyle(
               fontSize: 16,
-              color: Color(0xFFD9BC43),
+              color: Colors.black,
               fontWeight: FontWeight.bold,
             ),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(25),
               borderSide: BorderSide(
-                width: 0,
+                color: Colors.black,
+                width: 20,
                 style: BorderStyle.none,
               ),
             ),
             filled: true,
-            fillColor: Color(0xFFECCB45),
+            fillColor: Color(0xFFECCB95),
             contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 0),
           ),
         ),
@@ -110,18 +111,19 @@ class Login_State extends State<Login> {
             hintText: 'Password',
             hintStyle: TextStyle(
               fontSize: 16,
-              color: Color(0xFFD9BC43),
+              color: Colors.black,
               fontWeight: FontWeight.bold,
             ),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(25),
               borderSide: BorderSide(
-                width: 0,
+                color: Colors.black,
+                width: 400,
                 style: BorderStyle.none,
               ),
             ),
             filled: true,
-            fillColor: Color(0xFFECCB45),
+            fillColor: Color(0xFFECCB95),
             contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 0),
           ),
         ),
@@ -161,7 +163,7 @@ class Login_State extends State<Login> {
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFFF3D657),
+                  color: Color(0xFFECCB95),
                 ),
               ),
             ),
