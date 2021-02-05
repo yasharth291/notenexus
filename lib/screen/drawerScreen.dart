@@ -10,7 +10,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: 50, bottom: 70, left: 10),
+      padding: EdgeInsets.only(top: 50, bottom: 20, left: 10),
       color: Color(0xFF303030),
       child: Column(
         children : [
