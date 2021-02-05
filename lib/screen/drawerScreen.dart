@@ -82,7 +82,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
             ).toList(),
           ),
           SizedBox(
-            height: 100,
+            height: 90,
           ),
           Row(
             children: [
