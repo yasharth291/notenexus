@@ -21,9 +21,9 @@ class _HomeScreenState extends State<HomeScreen> {
       duration: Duration(milliseconds: 300),
       decoration: BoxDecoration(
         boxShadow: [
-          BoxShadow(color: Color(0xFFECCB70), blurRadius: 40, offset: Offset(0, 10)),
+          BoxShadow(color: Color(0xFFECCB95), blurRadius: 40, offset: Offset(0, 10)),
         ],
-        color : Color(0xFFECCB70),
+        color : Color(0xFFECCB95),
         borderRadius: BorderRadius.circular(isDrawerOpen?40:0.0),
       )
       ,
