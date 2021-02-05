@@ -10,7 +10,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: 50, bottom: 20, left: 10),
+      padding: EdgeInsets.only(top: 40, bottom: 0, left: 10),
       color: Color(0xFF303030),
       child: Column(
         children : [
@@ -52,12 +52,12 @@ class _DrawerScreenState extends State<DrawerScreen> {
           ],
       ),
           SizedBox(
-            height: 70,
+            height: 60,
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: drawerItems.map((element) => Padding(
-              padding: const EdgeInsets.all(12.0),
+              padding: const EdgeInsets.all(8.0),
               child : Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -82,7 +82,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
             ).toList(),
           ),
           SizedBox(
-            height: 240,
+            height: 100,
           ),
           Row(
             children: [
