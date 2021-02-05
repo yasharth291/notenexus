@@ -1,11 +1,11 @@
-const express = require("express");
-const router = express.Router();
+const expresss = require("express");
+const router = expresss.Router();
 const jwt = require('jsonwebtoken');
 const bcryptjs = require('bcryptjs');
 const { check,validationResult } = require('express-validator');
-const UserSchema = require('../schemas/User');
-const User = require("../schemas/User");
-const config = require('config');
+const UserSchema = require('../schemas/User.ts');
+const User = require("../schemas/User.ts");
+const configs = require('config');
 
 
 router.post(
@@ -49,7 +49,7 @@ router.post(
              }
              jwt.sign(
                 payload,
-                config.get('jwtSecret'),
+                configs.get('jwtSecret'),
                 (err,token) =>
                 {
                     if(err)
@@ -97,7 +97,7 @@ router.post(
                  }
                  jwt.sign(
                     payload,
-                    config.get('jwtSecret'),
+                    configs.get('jwtSecret'),
                     (err,token) =>
                     {
                         if(err)
