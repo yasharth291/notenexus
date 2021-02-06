@@ -3,6 +3,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'Home.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 class  Login extends StatefulWidget {
   @override
@@ -14,7 +15,23 @@ class Login_State extends State<Login> {
   TextEditingController passController = TextEditingController();
   String s = "",s2 = "";
   bool _isloading = false;
-
+  var alertStyle = AlertStyle(
+    animationType: AnimationType.fromTop,
+    isCloseButton: true,
+    isButtonVisible: false ,
+    isOverlayTapDismiss: true,
+    animationDuration: Duration(milliseconds: 400),
+    backgroundColor: Color(0xFFECCB95),
+    alertBorder: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(5),
+      side: BorderSide(
+        color: Colors.red,
+      ),
+    ),
+    titleStyle: TextStyle(
+      color: Colors.red,
+    ),
+  );
   signIn(String email, String password) async {
     String url = "https://notenexus.herokuapp.com/api/users/login";
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
@@ -50,10 +67,12 @@ class Login_State extends State<Login> {
         });
         print("Response Status: ${res.statusCode}");
         print("Response body: ${res.body}");
+        Alert(context: context, title: "Incorrect EmailId or Password",style: alertStyle ).show();
       }
     }
     catch(e){
       print (e);
+      Alert(context: context, title: "Something went Wrong Try Again ",style: alertStyle).show();
     }
   }
 
