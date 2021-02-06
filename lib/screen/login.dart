@@ -25,10 +25,12 @@ class Login_State extends State<Login> {
     alertBorder: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(5),
       side: BorderSide(
+        width: 2,
         color: Colors.red,
       ),
     ),
     titleStyle: TextStyle(
+      fontWeight: FontWeight.bold,
       color: Colors.red,
     ),
   );
