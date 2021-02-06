@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         textTheme: GoogleFonts.muktaVaaniTextTheme(),
       ),
       debugShowCheckedModeBanner: false,
-      home: Home(),
+      home: HomePage(),
     );
   }
 }
