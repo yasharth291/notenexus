@@ -23,10 +23,10 @@ class Login_State extends State<Login> {
     animationDuration: Duration(milliseconds: 400),
     backgroundColor: Color(0xFFECCB95),
     alertBorder: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(5),
+      borderRadius: BorderRadius.circular(25),
       side: BorderSide(
-        width: 2,
-        color: Colors.red,
+        width: 4,
+        color: Colors.black54,
       ),
     ),
     titleStyle: TextStyle(
@@ -69,7 +69,7 @@ class Login_State extends State<Login> {
         });
         print("Response Status: ${res.statusCode}");
         print("Response body: ${res.body}");
-        Alert(context: context, title: "Incorrect EmailId or Password",style: alertStyle ).show();
+        Alert(context: context, title: "Incorrect Email ID or Password",style: alertStyle ).show();
       }
     }
     catch(e){
