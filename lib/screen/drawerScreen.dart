@@ -91,7 +91,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
             ).toList(),
           ),
           SizedBox(
-            height: 90,
+            height: 70,
           ),
           Row(
             children: [
@@ -111,12 +111,21 @@ class _DrawerScreenState extends State<DrawerScreen> {
                 height: 20,
                 color: Colors.white
               ),
-              SizedBox(width: 10),
-              RaisedButton(
+              SizedBox(width: 0),
+              FlatButton(
+                child : Text(
+                  "Log Out",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
                 onPressed: (){
                   logout(context);
                 },
-                textColor: Colors.deepPurpleAccent,
+                textColor: Colors.white,
+                color: Colors.transparent,
               ),
             ],
           ),
