@@ -46,6 +46,9 @@ class Login_State extends State<Login> {
     },);
     try {
       if (res.statusCode == 200) {
+        SharedPreferences preferences = await SharedPreferences.getInstance();
+        preferences.setString('email', email);
+
         print("*");
         jsonResponse = json.decode(res.body);
         print("Response Status: ${res.statusCode}");

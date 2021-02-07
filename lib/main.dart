@@ -5,9 +5,13 @@ import 'package:notenexus/screen/login_option.dart';
 import 'package:notenexus/screen/signup.dart';
 import 'package:notenexus/screen/signup_option.dart';
 import 'package:notenexus/screen/Home.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
-  runApp(MyApp());
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences preferences = await SharedPreferences.getInstance();
+  var email = preferences.get('email');
+  runApp(MaterialApp(home: email== null ?MyApp():Home(),));
 }
 
 class MyApp extends StatelessWidget {

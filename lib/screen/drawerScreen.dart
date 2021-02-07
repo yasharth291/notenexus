@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:notenexus/config/drawerConfig.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:notenexus/main.dart';
 
 class DrawerScreen extends StatefulWidget {
   @override
@@ -7,6 +9,13 @@ class DrawerScreen extends StatefulWidget {
 }
 
 class _DrawerScreenState extends State<DrawerScreen> {
+
+  Future logout(BuildContext context)async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    preferences.remove('email');
+    Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage(),));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -103,13 +112,11 @@ class _DrawerScreenState extends State<DrawerScreen> {
                 color: Colors.white
               ),
               SizedBox(width: 10),
-              Text(
-                'Log Out',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
+              RaisedButton(
+                onPressed: (){
+                  logout(context);
+                },
+                textColor: Colors.deepPurpleAccent,
               ),
             ],
           ),
@@ -118,3 +125,4 @@ class _DrawerScreenState extends State<DrawerScreen> {
     );
   }
 }
+
