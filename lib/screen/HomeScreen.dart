@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:carousel_pro/carousel_pro.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -74,16 +75,35 @@ class _HomeScreenState extends State<HomeScreen> {
                       isDrawerOpen = true;
                     });
               }),
-
-              ),
+                 ),
                 ),
               ),
               SizedBox(
-                width: 20,
+                width: 30,
               ),
-
+              Container(
+                height:200,
+                width: 340,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(400),
+                ),
+                child: Carousel(
+                  boxFit: BoxFit.fitHeight,
+                  images:[
+                    AssetImage('carasol.png'),
+                    AssetImage('carasol2.png')
+                  ],
+                  autoplay: true,
+                  autoplayDuration: Duration(milliseconds: 3000),
+                  showIndicator: false,
+                  animationDuration: Duration(milliseconds: 2000),
+                  borderRadius: true,
+                  radius: Radius.circular(20.0),
+                ),
+              ),
               ],
-          )
+          ),
+
             ],
       ),
 
