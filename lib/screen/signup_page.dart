@@ -15,19 +15,30 @@ class signin_State extends State<signin> {
       child : Column(
         crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(
-                height: 100,
+              Stack(
+        children : [
+              Container(
+                height: 300,
+                width: 7000,
+                child:   FittedBox(
+                    child: Image.asset('background.png'),
+                    fit: BoxFit.fill
+                  ),
               ),
-              Align(
-                alignment: Alignment.center,
-                child: CircleAvatar(
-                maxRadius: 50,
-                backgroundColor: Colors.black,
+              Column(children: [
+                SizedBox(
+                  height: 70,
                 ),
+                Container(
+                  height: 100,
+                  width: 1500,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(image: AssetImage("assets/logo2.png")),
+                  ),
+                ),
+              ],
               ),
-              SizedBox(
-                height: 40,
-              ),
+        ],),
               Container(
               width: 340,
               child: TextField(
@@ -133,68 +144,48 @@ class signin_State extends State<signin> {
                 ),
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height - 728,
+                height: 60,
               ),
-              CustomPaint(
-                  painter: CurvePainter(true),
-                  child: Container(
-                    height: 80.0571,
-                  )
-              ),
-              Stack(
-                children: [
-                  Container(
-                    alignment: Alignment.bottomLeft,
-                    height: 150,
-                    color: Color(0xFF1C1C1C),
+              Container(
+                height: 40,
+                width: 200,
+                decoration: BoxDecoration(
+                  color: Color(0xFF1C1C1C),
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(25),
                   ),
-                  Row(
-                    crossAxisAlignment:  CrossAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        width: 55,
-                      ),
-                    Container(
-                      height: 150,
-                      width: 300,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage("assets/logo2.png")),
-                      ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color(0xFF1C1C1C).withOpacity(0.2),
+                      spreadRadius: 3,
+                      blurRadius: 4,
+                      offset: Offset(0, 3),
                     ),
                   ],
+                ),
+                child: Center(
+                  child: FlatButton(
+                    height: 40,
+                    color: Color(0xFF1C1C1C).withOpacity(0.2),
+                    onPressed: () {
+                    },
+                    child: Text(
+                      "SIGN IN",
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xFFECCB95),
+                      ),
+                    ),
                   ),
-                ],
+                ),
               ),
+
             ],
+
       ),
       ),
     );
   }
 }
-class CurvePainter extends CustomPainter {
 
-  bool outterCurve;
-
-  CurvePainter(this.outterCurve);
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    var paint = Paint();
-    paint.color = Color(0xFF1C1C1C);
-    paint.style = PaintingStyle.fill;
-
-    Path path = Path();
-    path.moveTo(0, size.height);
-    path.lineTo(0, size.height/2);
-    path.quadraticBezierTo(size.width / 4, size.height/4 - 15, size.width/2, 0);
-    path.quadraticBezierTo((size.width * 3)/ 4, size.height/4 - 15, size.width, size.height/2);
-    path.lineTo( size.width,size.height);
-    path.close();
-
-    canvas.drawPath(path, paint);
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) => false;
-}
