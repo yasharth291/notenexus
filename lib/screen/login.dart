@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'Home.dart';
+import 'signup_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
@@ -62,7 +63,7 @@ class Login_State extends State<Login> {
           sharedPreferences.setString("token", jsonResponse['token']);
 
           Navigator.of(context).pushAndRemoveUntil(
-              MaterialPageRoute(builder: (BuildContext context) => Home()),
+              MaterialPageRoute(builder: (BuildContext context) => signin()),
                   (Route<dynamic> route) => false);
         }
       } else {
