@@ -95,7 +95,7 @@ class CustomMenuClipper extends CustomClipper<Path>{
   @override
   Path getClip(Size size){
     Paint paint = Paint();
-    paint.color = Color(0xFFECCB70);
+    paint.color = Color(0xFFECCB95);
 
     final width = size.width;
     final height = size.height;
