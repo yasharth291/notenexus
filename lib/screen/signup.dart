@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'signup_page.dart';
+
 
 class SignUp extends StatefulWidget {
   @override
@@ -8,6 +10,12 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
+    signup(BuildContext context)async {
+    Navigator.push(context,MaterialPageRoute(builder: (context)  => signin(
+      emailHolder : emailController.text,
+      passHolder : passwordController.text,
+    ),));
+  }
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   final GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
@@ -103,12 +111,19 @@ class _SignUpState extends State<SignUp> {
             ],
           ),
           child: Center(
-            child: Text(
-              "SIGN UP",
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Color(0xFF1C1C1C),
+            child: FlatButton(
+              height: 40,
+              color: Color(0xFFECCB95).withOpacity(0.2),
+              onPressed: () {
+                signup(context);
+                },
+              child: Text(
+                "SIGN UP",
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFF1C1C1C),
+                ),
               ),
             ),
           ),
