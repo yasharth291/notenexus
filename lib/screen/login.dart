@@ -72,7 +72,7 @@ class Login_State extends State<Login> {
         });
         print("Response Status: ${res.statusCode}");
         print("Response body: ${res.body}");
-        Alert(context: context, title: "Incorrect Email ID or Password",style: alertStyle ).show();
+        Alert(context: context, title: "Something went Wrong Try Again",style: alertStyle ).show();
       }
     }
     catch(e){
