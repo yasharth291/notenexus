@@ -75,8 +75,8 @@ class Login_State extends State<Login> {
         Alert(context: context, title: "Incorrect Email ID or Password",style: alertStyle ).show();
       }
     }
-    catch(e){
-      print (e);
+    catch(err){
+      print (err);
       Alert(context: context, title: "Something went Wrong Try Again ",style: alertStyle).show();
     }
   }
