@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:notenexus/screen/Home.dart';
+import '../main.dart';
 import 'signup_page.dart';
 
 
@@ -18,15 +20,34 @@ class _SignUpState extends State<SignUp> {
   }
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  final GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
+  bool _isLoggedIn = false;
 
-  _login() async {
-    try {
+  GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
+
+  _login() async{
+    try{
       await _googleSignIn.signIn();
-    } catch (err) {
+
+      setState(() {
+        _isLoggedIn = true;
+
+      });
+    } catch (err){
       print(err);
     }
+
+
+
+    if(_isLoggedIn==true)
+      {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => Home(),));
+      }
+    else
+      {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => MyApp(),));
+      }
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -132,7 +153,7 @@ class _SignUpState extends State<SignUp> {
           height: 24,
         ),
         Text(
-          "Or Signin with",
+          "Or Signup with",
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 16,
@@ -156,7 +177,9 @@ class _SignUpState extends State<SignUp> {
                 color: Color(0xFFECCB95),
               ),
               onPressed: () {
+                print("hello");
                 _login();
+
               },
               splashColor: Colors.orangeAccent,
             ),
