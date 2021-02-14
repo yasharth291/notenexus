@@ -79,16 +79,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               SizedBox(
-                width: 10,
+                width: 1,
               ),
               Container(
                 height:200,
-                width: 340,
+                width: 375,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(400),
                 ),
                 child: Carousel(
-                  boxFit: BoxFit.fitHeight,
                   images:[
                     AssetImage('carasol.png'),
                     AssetImage('carasol2.png')
