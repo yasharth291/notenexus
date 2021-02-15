@@ -4,6 +4,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:notenexus/screen/Home.dart';
 import '../main.dart';
 import 'signup_page.dart';
+import 'gsignup_page.dart';
 
 
 class SignUp extends StatefulWidget {
@@ -27,25 +28,16 @@ class _SignUpState extends State<SignUp> {
   _login() async{
     try{
       await _googleSignIn.signIn();
-
       setState(() {
         _isLoggedIn = true;
-
+        Navigator.push(context,MaterialPageRoute(builder: (context)  => gsignin(
+            gmailHolder : _googleSignIn.currentUser.email,
+            nameHolder : _googleSignIn.currentUser.displayName,
+        ),));
       });
     } catch (err){
       print(err);
     }
-
-
-
-    if(_isLoggedIn==true)
-      {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => Home(),));
-      }
-    else
-      {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => MyApp(),));
-      }
   }
 
 
