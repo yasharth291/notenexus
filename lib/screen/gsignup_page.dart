@@ -155,7 +155,6 @@ class gsignin_State extends State<gsignin>{
               child: TextField(
                 controller: passController,
                 obscureText: true,
-                enabled: false,
                 obscuringCharacter: "*",
                 decoration: InputDecoration(
                   hintText: "ENTER PASSWORD",
@@ -185,6 +184,7 @@ class gsignin_State extends State<gsignin>{
               child: TextField(
                 decoration: InputDecoration(
                   hintText: nameHolder,
+                  enabled: false,
                   hintStyle: TextStyle(
                     fontSize: 20,
                     color: Colors.white70,
