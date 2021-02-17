@@ -30,11 +30,11 @@ class _SignUpState extends State<SignUp> {
       await _googleSignIn.signIn();
       setState(() {
         _isLoggedIn = true;
-        Navigator.push(context,MaterialPageRoute(builder: (context)  => gsignin(
-            gmailHolder : _googleSignIn.currentUser.email,
-            nameHolder : _googleSignIn.currentUser.displayName,
-        ),));
       });
+      Navigator.push(context,MaterialPageRoute(builder: (context)  => gsignin(
+        gmailHolder : _googleSignIn.currentUser.email,
+        nameHolder : _googleSignIn.currentUser.displayName,
+      ),));
     } catch (err){
       print(err);
     }
