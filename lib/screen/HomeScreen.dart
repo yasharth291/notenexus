@@ -17,7 +17,17 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedContainer(
+    return Scaffold(
+      appBar: AppBar(
+        title: Container(
+          height: 160,
+          width: 250,
+          decoration: BoxDecoration(
+            image: DecorationImage(image: AssetImage("assets/logo.png")),
+          ),
+        ),
+      ),
+      body :AnimatedContainer(
       transform: Matrix4.translationValues(xOffset, yOffset , 0)..scale(scaleFactor)..rotateY(isDrawerOpen?-0.2:0),
       duration: Duration(milliseconds: 300),
       decoration: BoxDecoration(
@@ -32,19 +42,6 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           SizedBox(
             height: 10,
-          ),
-          Column(
-            children: [
-              Center(
-                child : Container(
-                  height: 160,
-                  width: 250,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(image: AssetImage("assets/logo.png")),
-                  ),
-                ),
-              ),
-            ],
           ),
           Row(
             children: [
@@ -106,6 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
       ),
 
+    ),
     );
   }
 }
