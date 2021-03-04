@@ -95,7 +95,7 @@ class signin_State extends State<signin>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFECCB95),
+      backgroundColor: Colors.pink[100],
       body: SingleChildScrollView(
       child : Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -142,7 +142,7 @@ class signin_State extends State<signin>{
                     ),
                   ),
                   filled: true,
-                  fillColor: Colors.black87.withOpacity(0.9),
+                  fillColor: Color(0xFF363557).withOpacity(0.9),
                   contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 0),
                 ),
               ),
@@ -170,7 +170,7 @@ class signin_State extends State<signin>{
                       ),
                     ),
                     filled: true,
-                    fillColor: Colors.black87.withOpacity(0.9),
+                    fillColor: Color(0xFF363557).withOpacity(0.9),
                     contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 0),
                   ),
                 ),
@@ -199,7 +199,7 @@ class signin_State extends State<signin>{
                       ),
                     ),
                     filled: true,
-                    fillColor: Colors.black87.withOpacity(0.9),
+                    fillColor: Color(0xFF363557).withOpacity(0.9),
                     contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 0),
                   ),
                 ),
@@ -226,7 +226,7 @@ class signin_State extends State<signin>{
                       ),
                     ),
                     filled: true,
-                    fillColor: Colors.black87.withOpacity(0.9),
+                    fillColor: Color(0xFF363557).withOpacity(0.9),
                     contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 0),
                   ),
                 ),
@@ -238,13 +238,13 @@ class signin_State extends State<signin>{
                 height: 40,
                 width: 200,
                 decoration: BoxDecoration(
-                  color: Color(0xFF1C1C1C),
+                  color: Color(0xFF363557),
                   borderRadius: BorderRadius.all(
                     Radius.circular(25),
                   ),
                   boxShadow: [
                     BoxShadow(
-                      color: Color(0xFF1C1C1C).withOpacity(0.2),
+                      color: Color(0xFF363557).withOpacity(0.2),
                       spreadRadius: 3,
                       blurRadius: 4,
                       offset: Offset(0, 3),
@@ -254,7 +254,7 @@ class signin_State extends State<signin>{
                 child: Center(
                   child: FlatButton(
                     height: 40,
-                    color: Color(0xFF1C1C1C).withOpacity(0.2),
+                    color: Color(0xFF363557).withOpacity(0.2),
                     onPressed: () {
                       setState(() {
                         _isloading = true;
@@ -266,7 +266,7 @@ class signin_State extends State<signin>{
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFFECCB95),
+                        color:Colors.pink[100],
                       ),
                     ),
                   ),

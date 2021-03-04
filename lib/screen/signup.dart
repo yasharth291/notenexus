@@ -110,13 +110,13 @@ class _SignUpState extends State<SignUp> {
         Container(
           height: 40,
           decoration: BoxDecoration(
-            color: Color(0xFFECCB95),
+            color:Colors.pink[100],
             borderRadius: BorderRadius.all(
               Radius.circular(25),
             ),
             boxShadow: [
               BoxShadow(
-                color: Color(0xFFECCB95).withOpacity(0.2),
+                color: Colors.pink[100].withOpacity(0.2),
                 spreadRadius: 3,
                 blurRadius: 4,
                 offset: Offset(0, 3),
@@ -126,7 +126,7 @@ class _SignUpState extends State<SignUp> {
           child: Center(
             child: FlatButton(
               height: 40,
-              color: Color(0xFFECCB95).withOpacity(0.2),
+              color: Colors.pink[100].withOpacity(0.2),
               onPressed: () {
                 signup(context);
                 },
@@ -135,7 +135,7 @@ class _SignUpState extends State<SignUp> {
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF1C1C1C),
+                  color: Color(0xFF363557),
                 ),
               ),
             ),
@@ -149,7 +149,7 @@ class _SignUpState extends State<SignUp> {
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 16,
-            color: Color(0xFFECCB95),
+            color: Colors.pink[100],
             height: 1,
           ),
         ),
@@ -166,7 +166,7 @@ class _SignUpState extends State<SignUp> {
               icon: Icon(
                 Entypo.google__with_circle,
                 size: 32,
-                color: Color(0xFFECCB95),
+                color: Colors.pink[100],
               ),
               onPressed: () {
                 print("hello");

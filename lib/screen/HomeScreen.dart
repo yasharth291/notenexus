@@ -18,15 +18,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Container(
-          height: 160,
-          width: 250,
-          decoration: BoxDecoration(
-            image: DecorationImage(image: AssetImage("assets/logo.png")),
-          ),
-        ),
-      ),
       body :AnimatedContainer(
       transform: Matrix4.translationValues(xOffset, yOffset , 0)..scale(scaleFactor)..rotateY(isDrawerOpen?-0.2:0),
       duration: Duration(milliseconds: 300),
@@ -34,72 +25,38 @@ class _HomeScreenState extends State<HomeScreen> {
         boxShadow: [
           BoxShadow(color: Color(0xFFECCB95), blurRadius: 20, offset: Offset(0, 10)),
         ],
-        color : Color(0xFFECCB95),
+        color :   Color(0xFF1C1C1C),
         borderRadius: BorderRadius.circular(isDrawerOpen?40:0.0),
       )
       ,
-       child: Column(
-        children: [
-          SizedBox(
-            height: 10,
-          ),
-          Row(
+       child: Stack(
             children: [
-              Align(
-               alignment: Alignment(0 , -0.9),
-                child : ClipPath(
-                  clipper: CustomMenuClipper(),
-                 child : Container(
-                  width: 35,
-                  height: 110,
-                  color: Color(0xFF1C1C1C),
-                  child : isDrawerOpen ?
-                  IconButton(icon: Icon(Icons.arrow_back),color: Colors.white,
-                    onPressed: (){
-                      setState(() {
-                        xOffset = 0;
-                        yOffset = 0;
-                        scaleFactor = 1;
-                        isDrawerOpen = false;
-                      });
-                    },
-                  )
-                  : IconButton(icon: Icon(Icons.menu, color: Colors.white), onPressed: (){
-                    setState(() {
-                      xOffset = 200;
-                      yOffset = 150;
-                      scaleFactor = 0.6;
-                      isDrawerOpen = true;
-                    });
-              }),
-                 ),
+              Transform.rotate(
+                origin: Offset(30, -60),
+                angle: 2.4,
+                child: Container(
+                  margin: EdgeInsets.only(
+                    left: 75,
+                    top: 40,
+                  ),
+                  height: 400,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(80),
+                    gradient: LinearGradient(
+                      begin: Alignment.bottomLeft,
+                      colors : [Color(0xffFD8BAB), Color(0xFFFD44C4)],
+                    ),
+                  ),
                 ),
               ),
-              SizedBox(
-                width: 1,
-              ),
-              Container(
-                height:200,
-                width: 375,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(400),
-                ),
-                child: Carousel(
-                  images:[
-                    AssetImage('carasol.png'),
-                    AssetImage('carasol2.png')
-                  ],
-                  autoplay: true,
-                  autoplayDuration: Duration(milliseconds: 3000),
-                  showIndicator: false,
-                  animationDuration: Duration(milliseconds: 2000),
-                  borderRadius: true,
-                  radius: Radius.circular(20.0),
-                ),
-              ),
-              ],
+              Column(
+                children: [
+                SizedBox(
+                height: 10,
           ),
-
+      ],
+          ),
             ],
       ),
 

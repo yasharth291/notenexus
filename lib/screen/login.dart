@@ -21,12 +21,12 @@ class Login_State extends State<Login> {
     isButtonVisible: false ,
     isOverlayTapDismiss: true,
     animationDuration: Duration(milliseconds: 400),
-    backgroundColor: Color(0xFFECCB95),
+    backgroundColor: Colors.pink[100],
     alertBorder: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(25),
       side: BorderSide(
         width: 4,
-        color: Colors.black54,
+        color: Color(0xFF363557),
       ),
     ),
     titleStyle: TextStyle(
@@ -106,19 +106,19 @@ class Login_State extends State<Login> {
             hintText: 'E - mail',
             hintStyle: TextStyle(
               fontSize: 16,
-              color: Colors.black,
+              color:  Color(0xFF363557),
               fontWeight: FontWeight.bold,
             ),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(25),
               borderSide: BorderSide(
-                color: Colors.black,
+                color:  Color(0xFF363557),
                 width: 20,
                 style: BorderStyle.none,
               ),
             ),
             filled: true,
-            fillColor: Color(0xFFECCB95),
+            fillColor: Colors.pink[100],
             contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 0),
           ),
         ),
@@ -135,19 +135,19 @@ class Login_State extends State<Login> {
             hintText: 'Password',
             hintStyle: TextStyle(
               fontSize: 16,
-              color: Colors.black,
+              color:  Color(0xFF363557),
               fontWeight: FontWeight.bold,
             ),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(25),
               borderSide: BorderSide(
-                color: Colors.black,
+                color:  Color(0xFF363557),
                 width: 400,
                 style: BorderStyle.none,
               ),
             ),
             filled: true,
-            fillColor: Color(0xFFECCB95),
+            fillColor: Colors.pink[100],
             contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 0),
           ),
         ),
@@ -157,13 +157,13 @@ class Login_State extends State<Login> {
         Container(
           height: 40,
           decoration: BoxDecoration(
-            color: Color(0xFF1C1C1C),
+            color: Color(0xFF363557),
             borderRadius: BorderRadius.all(
               Radius.circular(25),
             ),
             boxShadow: [
               BoxShadow(
-                color: Color(0xFF1C1C1C).withOpacity(0.2),
+                color: Color(0xFF363557).withOpacity(0.2),
                 spreadRadius: 3,
                 blurRadius: 4,
                 offset: Offset(0, 3),
@@ -173,7 +173,7 @@ class Login_State extends State<Login> {
           child: Center(
             child: FlatButton(
               height: 40,
-              color: Color(0xFF1C1C1C).withOpacity(0.2),
+              color: Color(0xFF363557).withOpacity(0.2),
               onPressed: () {
                   setState(() {
                           _isloading = true;
@@ -187,7 +187,7 @@ class Login_State extends State<Login> {
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFFECCB95),
+                  color: Colors.pink[100],
                 ),
               ),
             ),
@@ -201,7 +201,7 @@ class Login_State extends State<Login> {
           style: TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
-            color: Color(0xFF1C1C1C),
+            color: Color(0xFF363557),
             height: 1,
           ),
         ),

@@ -13,6 +13,7 @@ class LoginOption extends StatelessWidget {
           style: TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.bold,
+            color: Color(0xFF363557)
           ),
         ),
 
@@ -23,13 +24,13 @@ class LoginOption extends StatelessWidget {
         Container(
           height: 40,
           decoration: BoxDecoration(
-            color: Color(0xFF1C1C1C),
+            color: Color(0xFF363557),
             borderRadius: BorderRadius.all(
               Radius.circular(25),
             ),
             boxShadow: [
               BoxShadow(
-                color: Color(0xFF1C1C1C).withOpacity(0.2),
+                color: Color(0xFF363557).withOpacity(0.2),
                 spreadRadius: 3,
                 blurRadius: 4,
                 offset: Offset(0, 3),
@@ -42,7 +43,7 @@ class LoginOption extends StatelessWidget {
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
-                color: Color(0xFFECCB95),
+                color: Colors.pink[100],
               ),
             ),
           ),

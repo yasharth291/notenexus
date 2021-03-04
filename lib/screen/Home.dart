@@ -26,10 +26,11 @@ class _Home extends  State<Home>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFF363567),
       body: Stack(
         children: [
-          DrawerScreen(),
           HomeScreen(),
+          SideBar(),
         ],
       ),
     );
