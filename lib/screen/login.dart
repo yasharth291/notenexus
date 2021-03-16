@@ -21,7 +21,7 @@ class Login_State extends State<Login> {
     isButtonVisible: false ,
     isOverlayTapDismiss: true,
     animationDuration: Duration(milliseconds: 400),
-    backgroundColor: Colors.pink[100],
+    backgroundColor: Colors.pink[100]!,
     alertBorder: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(25),
       side: BorderSide(

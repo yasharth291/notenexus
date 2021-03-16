@@ -116,7 +116,7 @@ class _SignUpState extends State<SignUp> {
             ),
             boxShadow: [
               BoxShadow(
-                color: Colors.pink[100].withOpacity(0.2),
+                color: Colors.pink[100]!.withOpacity(0.2),
                 spreadRadius: 3,
                 blurRadius: 4,
                 offset: Offset(0, 3),
@@ -124,9 +124,10 @@ class _SignUpState extends State<SignUp> {
             ],
           ),
           child: Center(
+            // ignore: deprecated_member_use
             child: FlatButton(
               height: 40,
-              color: Colors.pink[100].withOpacity(0.2),
+              color: Colors.pink[100]!.withOpacity(0.2),
               onPressed: () {
                 signup(context);
                 },

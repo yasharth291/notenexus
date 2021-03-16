@@ -11,7 +11,7 @@ class gsignin extends StatefulWidget {
   final  nameHolder ;
 
   gsignin({
-    Key key, @required this.gmailHolder,
+    Key? key, required this.gmailHolder,
     this.nameHolder,}) : super(key: key);
   gsignin_State createState() => gsignin_State(
     gmailHolder : gmailHolder,
@@ -24,9 +24,9 @@ class gsignin_State extends State<gsignin>{
   final  nameHolder ;
 
   gsignin_State({
-    Key key, @required this.gmailHolder,
+    Key? key, required this.gmailHolder,
     this.nameHolder,});
-  String s,s1,s2,s3;
+  String? s,s1,s2,s3;
   bool _isloading= false;
   var alertStyle = AlertStyle(
     animationType: AnimationType.fromTop,
@@ -47,7 +47,7 @@ class gsignin_State extends State<gsignin>{
       color: Colors.red,
     ),
   );
-  signIn(String email, String password, String names,String college) async {
+  signIn(String email, String password, String? names,String college) async {
     String url = "https://notenexus.herokuapp.com/api/users/signup";
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     var body  = json.encode({"email" : email, "password": password , "names" :names, "college":college});

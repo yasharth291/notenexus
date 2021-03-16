@@ -11,7 +11,7 @@ class signin extends StatefulWidget {
   final  passHolder ;
 
   signin({
-    Key key, @required this.emailHolder,
+    Key? key, required this.emailHolder,
     this.passHolder,}) : super(key: key);
   signin_State createState() => signin_State(
     emailHolder : emailHolder,
@@ -24,9 +24,9 @@ class signin_State extends State<signin>{
   final  passHolder ;
 
   signin_State({
-    Key key, @required this.emailHolder,
+    Key? key, required this.emailHolder,
     this.passHolder,});
-  String s,s1,s2,s3;
+  String? s,s1,s2,s3;
   bool _isloading= false;
   var alertStyle = AlertStyle(
     animationType: AnimationType.fromTop,
@@ -47,7 +47,7 @@ class signin_State extends State<signin>{
       color: Colors.red,
     ),
   );
-  signIn(String email, String password, String names,String college) async {
+  signIn(String email, String? password, String names,String college) async {
     String url = "https://notenexus.herokuapp.com/api/users/signup";
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     var body  = json.encode({"email" : email, "password": password , "names" :names, "college":college});

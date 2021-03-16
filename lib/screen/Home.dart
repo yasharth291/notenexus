@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'HomeScreen.dart';
 import 'drawerScreen.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Home extends StatefulWidget {
@@ -9,7 +10,7 @@ class Home extends StatefulWidget {
 }
 
 class _Home extends  State<Home>{
-  String email ="";
+  String? email ="";
   Future getEmail()async{
     SharedPreferences preferences = await SharedPreferences.getInstance();
     setState(() {

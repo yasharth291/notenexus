@@ -9,10 +9,10 @@ class SideBar extends StatefulWidget {
 }
 
 class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<SideBar> {
-  AnimationController _animationController;
-  StreamController<bool> isSidebarOpenedStreamController;
-  Stream<bool> isSidebarOpenedStream;
-  StreamSink<bool> isSidebarOpenedSink;
+  late AnimationController _animationController;
+  late StreamController<bool> isSidebarOpenedStreamController;
+  Stream<bool>? isSidebarOpenedStream;
+  late StreamSink<bool> isSidebarOpenedSink;
   final _animationDuration = const Duration(milliseconds: 500);
 
   @override
@@ -57,8 +57,8 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
           duration: _animationDuration,
           top: 0,
           bottom: 0,
-          left: isSideBarOpenedAsync.data ? 0 : -screenWidth,
-          right: isSideBarOpenedAsync.data ? 0 : screenWidth - 39.8,
+          left: isSideBarOpenedAsync.data! ? 0 : -screenWidth,
+          right: isSideBarOpenedAsync.data! ? 0 : screenWidth - 39.8,
           child: Row(
             children: <Widget>[
               Expanded(
